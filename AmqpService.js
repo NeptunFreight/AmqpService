@@ -103,6 +103,25 @@ class AmqpService {
     }
   }
 
+  async messageCount(queueName, cb){
+    console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+    if( process.env.NODE_ENV == "dev" || process.env.NODE_ENV == "test" ){
+      queueName = `${queueName}-dev`;
+    }
+
+    // Consumer
+    /*
+    this.channelPromise.then( (ch) => {
+      return ch.assertQueue(queueName).then( (ok) => {
+        console.log(ok);
+        cb(ok);        
+      }).catch(console.warn);    
+    }).catch(console.warn);
+    */
+   const ok = await this.channel.assertQueue(queueName, { durable: true });
+   return cb(ok);
+  }
+
   async ack(msg){
     this.channel.ack(msg);
   }
