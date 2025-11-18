@@ -2,6 +2,7 @@
   "name": "amqpservice",
   "version": "1.0.0",
   "main": "AmqpService.js",
+  "type": "module",
   "scripts": {
     "start": "node AmqpService.js",
     "test": "echo \"Error: no test specified\" && exit 1"
