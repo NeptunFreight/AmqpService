@@ -1,5 +1,5 @@
 {
-  "name": "@neptun/amqpservice",
+  "name": "@neptunfreight/amqpservice",
   "version": "1.0.0",
   "description": "A library to handling AMQP Messages",
   "main": "AmqpService.js",
@@ -8,7 +8,7 @@
     "start": "node AmqpService.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Sven Kronshage",
   "license": "ISC",  
   "dependencies": {
     "amqplib": "^0.10.9"
