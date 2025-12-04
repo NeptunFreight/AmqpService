@@ -50,8 +50,8 @@ class AmqpService {
         queueName = `${queueName}-dev`;
       }
 
-      await this.channel.assertQueue(queueName, { durable: true });
-      console.log(`🚀 Waiting for messages on '${queueName}'...`);
+      const ok = await this.channel.assertQueue(queueName, { durable: true });
+      console.log(`🚀 Waiting for messages on '${queueName}'...`, ok);
 
       this.channel.consume(queueName, (msg) => {
         if (msg) {
