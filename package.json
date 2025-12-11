@@ -1,6 +1,6 @@
 {
   "name": "@neptunfreight/amqpservice",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library to handling AMQP Messages",
   "main": "AmqpService.js",
   "type": "module",

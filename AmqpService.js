@@ -4,9 +4,10 @@ import amqp from "amqplib";
 class AmqpService {
   
 
-  constructor(){
+  constructor(debug = false){
     this.connection = null;
-    this.channel = null;    
+    this.channel = null;
+    this.debug = debug;   
   }
 
   async init(client, password, host) {
@@ -37,7 +38,9 @@ class AmqpService {
       const message = Buffer.from(JSON.stringify(data));
       this.channel.sendToQueue(queueName, message, { persistent: true });
 
-      console.log(`📤 Sent message to queue '${queueName}':`, data);
+      if(this.debug){
+        console.log(`📤 Sent message to queue '${queueName}':`, data);
+      }
     } catch (err) {
       console.error("❌ publishToQueue error:", err);
     }
